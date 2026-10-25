@@ -9,13 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            LinearGradient(
+                colors: [Color("topColor"), Color("bottomColor")],
+                startPoint: .top,
+                endPoint: .bottom)
+            .ignoresSafeArea()
+            
+            ScrollView {
+                
+                VStack {
+                    
+                    HeaderView(city: "Chapel Hill",
+                               temp: 70,
+                               condition: "Sunny",
+                               tempRange: "H:70° L:48°")
+                    
+                    
+                    
+                    HourlyForecastView()
+                    
+                    TenDayForecastView()
+    
+                }
+            }
         }
-        .padding()
+        
+        
+        
     }
 }
 
